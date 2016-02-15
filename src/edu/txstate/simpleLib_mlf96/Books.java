@@ -16,11 +16,11 @@ public class Books extends Documents {
     /**
      * 
      */
-    public Int ISBN;
+    public int ISBN;
 
     /**
      * 
      */
-    public Int Pages;
+    public int Pages;
 
 }

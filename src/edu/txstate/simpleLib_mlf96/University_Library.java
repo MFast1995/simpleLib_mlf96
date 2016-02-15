@@ -16,12 +16,12 @@ public class University_Library {
     /**
      * 
      */
-    public Double Hours;
+    public double Hours;
 
     /**
      * 
      */
-    public Int Employees;
+    public int Employees;
 
     /**
      * 
@@ -55,14 +55,23 @@ public class University_Library {
      * 
      */
     public void OverdueReminder() {
+    	
         // TODO implement here
     }
 
     /**
      * @param User
      */
-    public void IsRegisted(void User) {
-        // TODO implement here
+    public boolean IsRegisted(User user) {
+    	//TODO: Search through registered users 
+        if(user.AccountNumber != 0)
+        	return true;
+        else
+        	return false;
+    }
+    
+    public static void main (String [] args){
+    	System.out.println("Hello World! :D");
     }
 
 }

@@ -21,7 +21,7 @@ public class User {
     /**
      * 
      */
-    public Int AccountNumber;
+    public int AccountNumber;
 
     /**
      * 
@@ -31,7 +31,7 @@ public class User {
     /**
      * 
      */
-    public Int MaxBookLimit;
+    public int MaxBookLimit;
 
     /**
      * 
@@ -46,17 +46,17 @@ public class User {
     /**
      * 
      */
-    public Int CurrentDocsOut;
+    public int CurrentDocsOut;
 
     /**
      * 
      */
-    public Int ShortLoanPeriod;
+    public int ShortLoanPeriod;
 
     /**
      * 
      */
-    public Int LongLoanPeriod;
+    public int LongLoanPeriod;
 
 
 
@@ -91,14 +91,7 @@ public class User {
     /**
      * @param Title
      */
-    public void Search(String Title) {
-        // TODO implement here
-    }
-
-    /**
-     * @param Author
-     */
-    public void Search(String Author) {
+    public void Search(String Title, String Author) {
         // TODO implement here
     }
 

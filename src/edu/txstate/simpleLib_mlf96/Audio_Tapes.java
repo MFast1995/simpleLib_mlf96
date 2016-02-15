@@ -21,6 +21,6 @@ public class Audio_Tapes extends Documents {
     /**
      * 
      */
-    public Time Length;
+    public int Length;
 
 }

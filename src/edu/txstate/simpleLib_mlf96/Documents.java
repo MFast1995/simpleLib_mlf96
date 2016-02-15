@@ -36,7 +36,7 @@ public class Documents {
     /**
      * 
      */
-    public Int NumberOfCopies;
+    public int NumberOfCopies;
 
     /**
      * 
@@ -46,12 +46,12 @@ public class Documents {
     /**
      * 
      */
-    public Int LongLoanPeriod;
+    public int LongLoanPeriod;
 
     /**
      * 
      */
-    public Bool Reserved;
+    public boolean Reserved;
 
 
 

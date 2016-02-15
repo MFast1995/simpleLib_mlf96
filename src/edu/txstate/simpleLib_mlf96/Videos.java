@@ -21,6 +21,6 @@ public class Videos extends Documents {
     /**
      * 
      */
-    public Time Length;
+    public int Length;
 
 }

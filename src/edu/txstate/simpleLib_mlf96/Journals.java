@@ -16,16 +16,16 @@ public class Journals extends Documents {
     /**
      * 
      */
-    public Int Volume;
+    public int Volume;
 
     /**
      * 
      */
-    public Int Number;
+    public int Number;
 
     /**
      * 
      */
-    public Int ShortLoanPeriod;
+    public int ShortLoanPeriod;
 
 }
