@@ -21,6 +21,6 @@ public class Books extends Documents {
     /**
      * 
      */
-    public int Pages;
+    public int pages;
 
 }

@@ -5,7 +5,7 @@ import java.util.*;
 /**
  * 
  */
-public class Staff {
+public class Staff extends User {
 
     /**
      * Default constructor

@@ -11,68 +11,58 @@ public class Documents {
      * Default constructor
      */
     public Documents() {
+    	title = null;
+    	authors = null;
     }
 
     /**
      * 
      */
-    public String Title;
+    public String title;
 
     /**
      * 
      */
-    public String Authors;
+    public ArrayList<Author> authors;
 
     /**
      * 
      */
-    public String Publisher;
+    public String publisher;
 
     /**
      * 
      */
-    public Date PublishedDate;
+    public String publishedDate;
 
     /**
      * 
      */
-    public int NumberOfCopies;
+    public int numberOfCopies;
 
     /**
      * 
      */
-    public String ShelfLocation;
+    public int longLoanPeriod;
 
     /**
      * 
      */
-    public int LongLoanPeriod;
-
-    /**
-     * 
-     */
-    public boolean Reserved;
-
-
-
-    /**
-     * 
-     */
-    public void Search() {
+    public void search() {
         // TODO implement here
     }
 
     /**
      * 
      */
-    public void Update() {
+    public void update() {
         // TODO implement here
     }
 
     /**
      * 
      */
-    public void Record() {
+    public void record() {
         // TODO implement here
     }
 

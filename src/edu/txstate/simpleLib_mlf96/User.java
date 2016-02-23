@@ -11,94 +11,88 @@ public class User {
      * Default constructor
      */
     public User() {
+    	accountNumber = 0;
     }
 
     /**
      * 
      */
-    public String Name;
+    private String name;
 
     /**
      * 
      */
-    public int AccountNumber;
+    private int accountNumber;
 
     /**
      * 
      */
-    public String AccountType;
+    private String accountType;
 
     /**
      * 
      */
-    public int MaxBookLimit;
+    private int maxBookLimit;
 
     /**
      * 
      */
-    public String Address;
+    private String address;
 
     /**
      * 
      */
-    public Double Fines;
+    private Double fines;
 
     /**
      * 
      */
-    public int CurrentDocsOut;
+    private ArrayList<Documents> documentsCheckedOut;
 
     /**
      * 
      */
-    public int ShortLoanPeriod;
+    private int shortLoanPeriod;
 
     /**
      * 
      */
-    public int LongLoanPeriod;
+    private int longLoanPeriod;
 
 
 
     /**
      * 
      */
-    public void PayFine() {
+    public void payFine() {
         // TODO implement here
     }
 
     /**
      * 
      */
-    public void UpdateInfo() {
+    public void updateInfo() {
         // TODO implement here
     }
 
     /**
      * 
      */
-    public void CheckOut() {
+    public void checkOut() {
         // TODO implement here
     }
 
     /**
      * 
      */
-    public void ExtendLoan() {
-        // TODO implement here
-    }
-
-    /**
-     * @param Title
-     */
-    public void Search(String Title, String Author) {
+    public void extendLoan() {
         // TODO implement here
     }
 
     /**
      * 
      */
-    public void OverdueReminder() {
+    public void overdueReminder() {
         // TODO implement here
     }
 
