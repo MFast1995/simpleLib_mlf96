@@ -7,4 +7,11 @@ public class Student extends User {
 		
 	}
 	
+	public Student(String nameUser, int userID, String type)
+    {
+    	name = nameUser;
+    	accountNumber = userID;
+    	accountType = type;
+    	maxBookLimit = 6;
+    }	
 }

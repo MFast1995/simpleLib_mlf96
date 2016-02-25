@@ -11,62 +11,24 @@ public class User {
      * Default constructor
      */
     public User() {
-    	accountNumber = 0;
+    	
+    }
+    
+    public User(String nameUser, int userID, String type)
+    {
+    	name = nameUser;
+    	accountNumber = userID;
+    	accountType = type;
     }
 
-    /**
-     * 
-     */
-    private String name;
-
-    /**
-     * 
-     */
-    private int accountNumber;
-
-    /**
-     * 
-     */
-    private String accountType;
-
-    /**
-     * 
-     */
-    private int maxBookLimit;
-
-    /**
-     * 
-     */
-    private String address;
-
-    /**
-     * 
-     */
+    protected String name;
+    protected int accountNumber;
+    protected String accountType;
+    protected int maxBookLimit;
     private Double fines;
-
-    /**
-     * 
-     */
     private ArrayList<Documents> documentsCheckedOut;
-
-    /**
-     * 
-     */
     private int shortLoanPeriod;
-
-    /**
-     * 
-     */
     private int longLoanPeriod;
-
-
-
-    /**
-     * 
-     */
-    public void payFine() {
-        // TODO implement here
-    }
 
     /**
      * 
@@ -88,12 +50,4 @@ public class User {
     public void extendLoan() {
         // TODO implement here
     }
-
-    /**
-     * 
-     */
-    public void overdueReminder() {
-        // TODO implement here
-    }
-
 }

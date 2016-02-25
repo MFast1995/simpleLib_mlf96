@@ -12,5 +12,12 @@ public class Faculty extends User{
      */
     public Faculty() {
     }
-
+    
+    public Faculty(String nameUser, int userID, String type)
+    {
+    	name = nameUser;
+    	accountNumber = userID;
+    	accountType = type;
+    	maxBookLimit = 12;
+    }
 }

@@ -12,20 +12,33 @@ public class Journals extends Documents {
      */
     public Journals() {
     }
+    
+    public Journals(String journalTitle, String journalPublishDate, int journalVolume,
+			int journalIssue, String journalPublisher, String journalArticles)
+    {
+    	title = journalTitle;
+    	publishedDate = journalPublishDate;
+    	volume = journalVolume;
+    	issueNumber = journalIssue;
+    	publisher = journalPublisher;
+    	articles = journalArticles;
+    }
 
     /**
      * 
      */
-    public int Volume;
+    public int volume;
 
     /**
      * 
      */
-    public int Number;
+    public int issueNumber;
 
     /**
      * 
      */
-    public int ShortLoanPeriod;
+    public int shortLoanPeriod;
+    
+    public String articles;
 
 }

@@ -12,5 +12,13 @@ public class Staff extends User {
      */
     public Staff() {
     }
+    
+    public Staff(String nameUser, int userID, String type)
+    {
+    	name = nameUser;
+    	accountNumber = userID;
+    	accountType = type;
+    	maxBookLimit = 12;
+    }
 
 }

@@ -12,11 +12,22 @@ public class Books extends Documents {
      */
     public Books() {
     }
+    
+    public Books(String bookTitle, String bookPublisher, String publishDate, 
+    		String bookISBN, int copies, String bookAuthor)
+    {
+    	title = bookTitle;
+    	publisher = bookPublisher;
+    	publishedDate = publishDate;
+    	ISBN = bookISBN;
+    	numberOfCopies = copies;
+    	authors = bookAuthor;
+    }
 
     /**
      * 
      */
-    public int ISBN;
+    public String ISBN;
 
     /**
      * 

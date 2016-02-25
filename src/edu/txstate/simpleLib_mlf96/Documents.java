@@ -23,7 +23,7 @@ public class Documents {
     /**
      * 
      */
-    public ArrayList<Author> authors;
+    public String authors;
 
     /**
      * 
