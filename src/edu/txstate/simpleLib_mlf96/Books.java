@@ -1,15 +1,9 @@
 package edu.txstate.simpleLib_mlf96;
 
-import java.util.*;
-
-/**
- * 
- */
+//
 public class Books extends Documents {
 
-    /**
-     * Default constructor
-     */
+	//Default Constructor
     public Books() {
     }
     
@@ -24,14 +18,6 @@ public class Books extends Documents {
     	authors = bookAuthor;
     }
 
-    /**
-     * 
-     */
     public String ISBN;
-
-    /**
-     * 
-     */
     public int pages;
-
 }

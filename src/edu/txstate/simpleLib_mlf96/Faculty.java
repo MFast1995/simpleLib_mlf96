@@ -1,23 +1,13 @@
 package edu.txstate.simpleLib_mlf96;
 
-import java.util.*;
-
-/**
- * 
- */
+//
 public class Faculty extends User{
-
-    /**
-     * Default constructor
-     */
-    public Faculty() {
-    }
-    
-    public Faculty(String nameUser, int userID, String type)
+	
+    public Faculty(String nameUser, int userID)
     {
     	name = nameUser;
     	accountNumber = userID;
-    	accountType = type;
+    	accountType = "faculty";
     	maxBookLimit = 12;
     }
 }

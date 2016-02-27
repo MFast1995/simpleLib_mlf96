@@ -7,9 +7,7 @@ import java.util.*;
  */
 public class User {
 
-    /**
-     * Default constructor
-     */
+    //Default Constructor
     public User() {
     	
     }
@@ -25,28 +23,17 @@ public class User {
     protected int accountNumber;
     protected String accountType;
     protected int maxBookLimit;
-    private Double fines;
-    private ArrayList<Documents> documentsCheckedOut;
-    private int shortLoanPeriod;
-    private int longLoanPeriod;
+    protected Double fines;
+    protected ArrayList<Documents> documentsCheckedOut;
+    protected int shortLoanPeriod = 3;
+    protected int longLoanPeriod;
 
-    /**
-     * 
-     */
+    //
     public void updateInfo() {
         // TODO implement here
     }
 
-    /**
-     * 
-     */
-    public void checkOut() {
-        // TODO implement here
-    }
-
-    /**
-     * 
-     */
+    //
     public void extendLoan() {
         // TODO implement here
     }

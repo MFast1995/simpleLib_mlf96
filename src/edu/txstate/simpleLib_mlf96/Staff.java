@@ -1,24 +1,13 @@
 package edu.txstate.simpleLib_mlf96;
 
-import java.util.*;
-
-/**
- * 
- */
+//
 public class Staff extends User {
-
-    /**
-     * Default constructor
-     */
-    public Staff() {
-    }
     
-    public Staff(String nameUser, int userID, String type)
+    public Staff(String nameUser, int userID)
     {
     	name = nameUser;
     	accountNumber = userID;
-    	accountType = type;
+    	accountType = "librarian";
     	maxBookLimit = 12;
     }
-
 }

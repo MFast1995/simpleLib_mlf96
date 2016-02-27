@@ -1,15 +1,9 @@
 package edu.txstate.simpleLib_mlf96;
 
-import java.util.*;
-
-/**
- * 
- */
+//
 public class Journals extends Documents {
 
-    /**
-     * Default constructor
-     */
+    //Default Constructor
     public Journals() {
     }
     
@@ -24,21 +18,7 @@ public class Journals extends Documents {
     	articles = journalArticles;
     }
 
-    /**
-     * 
-     */
     public int volume;
-
-    /**
-     * 
-     */
     public int issueNumber;
-
-    /**
-     * 
-     */
-    public int shortLoanPeriod;
-    
     public String articles;
-
 }

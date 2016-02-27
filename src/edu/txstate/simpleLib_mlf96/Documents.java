@@ -1,67 +1,29 @@
 package edu.txstate.simpleLib_mlf96;
 
-import java.util.*;
-
-/**
- * 
- */
+//
 public class Documents {
 
-    /**
-     * Default constructor
-     */
+	//Default Constructor
     public Documents() {
-    	title = null;
-    	authors = null;
     }
+    
+    protected String title;
+    protected String authors;
+    protected String publisher;
+    protected String publishedDate;
+    protected int numberOfCopies;
 
-    /**
-     * 
-     */
-    public String title;
-
-    /**
-     * 
-     */
-    public String authors;
-
-    /**
-     * 
-     */
-    public String publisher;
-
-    /**
-     * 
-     */
-    public String publishedDate;
-
-    /**
-     * 
-     */
-    public int numberOfCopies;
-
-    /**
-     * 
-     */
-    public int longLoanPeriod;
-
-    /**
-     * 
-     */
+    //
     public void search() {
         // TODO implement here
     }
 
-    /**
-     * 
-     */
+    //
     public void update() {
         // TODO implement here
     }
 
-    /**
-     * 
-     */
+    //
     public void record() {
         // TODO implement here
     }
