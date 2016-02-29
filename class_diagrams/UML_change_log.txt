@@ -3,10 +3,10 @@ UML diagram has been drastically changed from original diagram.
 Most changes were done to reflect changes made in the program to 
 fulfill requirements of assignment.
 
-Several redundant attributes were removed (such as have the same variable in multiple classes when only one is needed)
+Several redundant attributes were removed(such as have the same variable in multiple classes when only one is needed)
 
 Removed useless functions not needed for assignment (such as alert 
 for overdue documents)
 
 User subclasses (Student, faculty, staff) created to accomodate
-for different attributes of different account types.
+for different attributes of different account types. 

@@ -1,7 +1,12 @@
 package edu.txstate.simpleLib_mlf96;
 
-import java.util.*;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Scanner;
+import java.util.ArrayList;
 
 // This class contains the main portion of the program.
 // University Library is a system to allow users to search, borrow, and return various
@@ -321,7 +326,12 @@ public class University_Library {
 							userInput = sn.nextInt();
 							sn.nextLine();
 							if(userInput == 1)
-								issueDocument(activeUser, searchIndex);
+							{
+								if(issueDocument(activeUser, searchIndex))
+									System.out.println("You have checked out " + query);
+								else
+									System.out.println("Unable to check out document!");
+							}
 						}
 						else
 							System.out.println("Document not found!");
@@ -418,7 +428,12 @@ public class University_Library {
 							userInput = sn.nextInt();
 							sn.nextLine();
 							if(userInput == 1)
-								issueDocument(activeUser, searchIndex);
+							{
+								if(issueDocument(activeUser, searchIndex))
+									System.out.println("You have checked out " + query);
+								else
+									System.out.println("Unable to check out document!");
+							}
 						}
 						else
 							System.out.println("Document not found!");
@@ -558,7 +573,12 @@ public class University_Library {
 							userInput = sn.nextInt();
 							sn.nextLine();
 							if(userInput == 1)
-								issueDocument(activeUser, searchIndex);
+							{
+								if(issueDocument(activeUser, searchIndex))
+									System.out.println("You have checked out " + query);
+								else
+									System.out.println("Unable to check out document!");
+							}
 						}
 						else
 							System.out.println("Document not found!");
