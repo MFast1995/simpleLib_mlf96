@@ -6,7 +6,7 @@ April Sales
 2
 faculty
 
-Gabri Loa
+Katie Bell
 3
 student
 
@@ -21,3 +21,8 @@ librarian
 Elizabeth Harwell
 6
 librarian
+
+Anne Ngu
+7
+faculty
+

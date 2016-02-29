@@ -5,6 +5,8 @@ public class Documents {
 
 	//Default Constructor
     public Documents() {
+    	title = "Document";
+    	numberOfCopies = 0;
     }
     
     protected String title;
@@ -12,20 +14,5 @@ public class Documents {
     protected String publisher;
     protected String publishedDate;
     protected int numberOfCopies;
-
-    //
-    public void search() {
-        // TODO implement here
-    }
-
-    //
-    public void update() {
-        // TODO implement here
-    }
-
-    //
-    public void record() {
-        // TODO implement here
-    }
-
+    protected String location;
 }

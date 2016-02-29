@@ -4,6 +4,8 @@ EMERGING TRENDS	in IOT
 11
 IEEE Computer
 a1, a2, a3
+1
+library
 
 COMMON FRAMEWORK
 09-20-2014
@@ -11,6 +13,8 @@ COMMON FRAMEWORK
 11
 Elsevier
 c1, c2, c3
+6
+library
 
 ACM Computing Survey
 10-12-2013
@@ -18,6 +22,8 @@ ACM Computing Survey
 11
 CACM
 b1, b2, b3, b4
+2
+library
 
 Foundations in Machine Learning
 01-22-2014
@@ -25,6 +31,8 @@ Foundations in Machine Learning
 12
 IEEE Society
 e1, e2
+4
+library
 
 Molecular Systems Biology
 10-12-2009
@@ -32,3 +40,6 @@ Molecular Systems Biology
 11
 Springer Verlag
 n1, n2, n4,n5, n6
+3
+library
+
