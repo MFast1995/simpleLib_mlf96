@@ -2,7 +2,8 @@ package edu.txstate.simpleLib_mlf96;
 
 import java.util.ArrayList;
 
-//
+//Subclass of User for librarians
+//with special access in program
 public class Staff extends User {
     
     public Staff(String nameUser, int userID)

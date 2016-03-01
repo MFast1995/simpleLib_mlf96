@@ -1,6 +1,7 @@
 package edu.txstate.simpleLib_mlf96;
 
-//
+//subclass of Documents for Books. 
+//Has new attribute ISBN
 public class Books extends Documents {
     
     public Books(String bookTitle, String bookPublisher, String publishDate, 
@@ -15,5 +16,5 @@ public class Books extends Documents {
     	location = bookLocation;
     }
 
-    public String ISBN;
+    public String ISBN; //ISBN of book
 }

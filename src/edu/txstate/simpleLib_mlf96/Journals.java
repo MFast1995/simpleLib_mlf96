@@ -1,6 +1,7 @@
 package edu.txstate.simpleLib_mlf96;
 
-//
+//Subclass of documents with
+//new attributes volume, issueNumber, and articles
 public class Journals extends Documents {
     
     public Journals(String journalTitle, String journalPublishDate, int journalVolume,
@@ -16,7 +17,7 @@ public class Journals extends Documents {
     	location = journalLocation;
     }
 
-    public int volume;
-    public int issueNumber;
-    public String articles;
+    public int volume;		//volume of journal
+    public int issueNumber; //issue number of journal
+    public String articles; //list of articles in journal
 }

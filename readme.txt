@@ -16,9 +16,9 @@ specified.
 
 For sake of testing, the following are account types with valid IDs
 
-Faculty 	1, 2, 7
-Student 	3, 4
-Librarian 	5, 6
+Faculty 	1, 2, 7		Example: 7 Anne Ngu
+Student 	3, 4, 8		Example: 8 Michelle Fast
+Librarian 	5, 6		Example: 5 Cody Kern
 
 When an account has been successfully entered, the account will then 
 be marked as the active account. The screen will then pull up a 
@@ -41,6 +41,7 @@ Search Library by Title
 	will successfully be able to borrow the document
 
 	Example: Hadoop Big data
+	Example: COMMON FRAMEWORK
 
 Search Library by Author
 	This will prompt the user to enter an author (case sensitive).
@@ -84,9 +85,3 @@ Errors and Issues
 
 	+Authors, even multiple, are stored as a string instead of 
 	multiple Author classes
-
-	+Documents borrowed by a User are not saved to user account
-	but are saved to the documents ArrayList under their name.
-
-	+Returning a document does not remove the document is ArrayList
-	under User's name

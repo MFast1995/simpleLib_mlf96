@@ -27,20 +27,51 @@ public class University_Library {
 		try {
 			FileReader fileReader = new FileReader(userFile);
 			BufferedReader bufferedReader = new BufferedReader(fileReader);
+			User activeUser;
 			String name = "";
 			int userID = 0;
+			int documentsCheckedOut = 0;
 			String type = "";
+			String documentType, title, publisher, publishDate, ISBN, authors, articles;
+			int issue, volume;
 			while ((name = bufferedReader.readLine()) != null) {
 				userID = Integer.parseInt(bufferedReader.readLine());
 				type = bufferedReader.readLine();
+				//bufferedReader.readLine();
+				if (type.equals("librarian"))
+					activeUser = new Staff(name, userID);
+				else if (type.equals("faculty"))
+					activeUser = new Faculty(name, userID);
+				else
+					activeUser = new Student(name, userID);
+				users.add(activeUser);
+					
+				documentsCheckedOut = Integer.parseInt(bufferedReader.readLine());
+				for(int x = 0; x < documentsCheckedOut; x++)
+				{
+					documentType = bufferedReader.readLine();
+					if(documentType.equals("Books"))
+					{
+						title = bufferedReader.readLine();
+						publisher = bufferedReader.readLine();
+						publishDate = bufferedReader.readLine();
+						ISBN = bufferedReader.readLine();
+						authors = bufferedReader.readLine();
+						activeUser.documentsCheckedOut.add(new Books(title, publisher, publishDate, ISBN, 1, authors, name));
+					}
+					else
+					{
+						title = bufferedReader.readLine();
+						publishDate = bufferedReader.readLine();
+						volume = Integer.parseInt(bufferedReader.readLine());
+						issue = Integer.parseInt(bufferedReader.readLine());
+						publisher = bufferedReader.readLine();
+						articles = bufferedReader.readLine();
+						activeUser.documentsCheckedOut.add(new Journals(title, publishDate, volume, issue, publisher, articles, 1, name));
+					}
+				}
 				bufferedReader.readLine();
 				
-				if (type.equals("librarian"))
-					users.add(new Staff(name, userID));
-				else if (type.equals("faculty"))
-					users.add(new Faculty(name, userID));
-				else
-					users.add(new Student(name, userID));
 			}
 			bufferedReader.close();
 		} catch (FileNotFoundException ex) {
@@ -59,7 +90,34 @@ public class University_Library {
 			{
 				write.write(user.name + "\n");
 				write.write(user.accountNumber + "\n");
-				write.write(user.accountType + "\n\n");
+				write.write(user.accountType + "\n");
+				//System.out.println(user.documentsCheckedOut.size());
+				write.write(user.documentsCheckedOut.size() + "\n");
+				for(Documents document : user.documentsCheckedOut)
+				{	
+					if(document instanceof Books)
+					{
+						write.write("Books\n");
+						write.write(document.title + "\n");
+						write.write(document.publisher + "\n");
+						write.write(document.publishedDate + "\n");
+						write.write(((Books)document).ISBN + "\n");
+						write.write(document.authors + "\n");
+					}
+					else if(document instanceof Journals)
+					{
+						write.write("Journals\n");
+						write.write(document.title + "\n");
+						write.write(document.publishedDate + "\n");
+						write.write(((Journals)document).volume + "\n");
+						write.write(((Journals)document).issueNumber + "\n");
+						write.write(document.publisher + "\n");
+						write.write(((Journals)document).articles + "\n");
+					}
+					else
+						System.out.println("Error saving: " + document.title + "\nWill not be saved\n");
+				}
+				write.write("\n");
 			}
 			write.close();
 		}
@@ -217,11 +275,7 @@ public class University_Library {
 	
 	//function to allow user to borrow specified document
 	private static boolean issueDocument(User user, int documentIndex) {
-		int booksCheckedOut = 0;
-		if(!user.documentsCheckedOut.isEmpty())
-		{	
-			booksCheckedOut = user.documentsCheckedOut.size();
-		}
+		int booksCheckedOut = user.documentsCheckedOut.size();
 		if(documents.get(documentIndex).numberOfCopies > 0 && booksCheckedOut < user.maxBookLimit)
 		{
 			if(documents.get(documentIndex) instanceof Books)
@@ -230,7 +284,6 @@ public class University_Library {
 						documents.get(documentIndex).publishedDate, ((Books) documents.get(documentIndex)).ISBN, 
 						1, documents.get(documentIndex).authors, user.name);
 				user.documentsCheckedOut.add(checkOut);
-				documents.add(checkOut);
 				documents.get(documentIndex).numberOfCopies--;
 				return true;
 			}
@@ -240,9 +293,10 @@ public class University_Library {
 						((Journals) documents.get(documentIndex)).volume, ((Journals) documents.get(documentIndex)).issueNumber,
 						documents.get(documentIndex).publisher, ((Journals) documents.get(documentIndex)).articles, 1, user.name);
 				user.documentsCheckedOut.add(checkOut);
-				documents.add(checkOut);
 				documents.get(documentIndex).numberOfCopies--;
+				return true;
 			}
+			System.out.println("Test in function");
 		}
 		return false;
 	}
@@ -250,9 +304,7 @@ public class University_Library {
 	//function to allow user to return specified document
 	private static boolean returnDocument(User user, int documentIndex){						
 		for(Documents document : documents)
-			if(document.title.equals(user.documentsCheckedOut.get(documentIndex).title) 
-			&& document.authors.equals(user.documentsCheckedOut.get(documentIndex).authors)
-			&& document.location.equals("library"))
+			if(document.title.equals(user.documentsCheckedOut.get(documentIndex).title))
 			{
 				document.numberOfCopies += 1;
 				user.documentsCheckedOut.remove(documentIndex);
@@ -306,7 +358,12 @@ public class University_Library {
 							userInput = sn.nextInt();
 							sn.nextLine();
 							if(userInput == 1)
-								issueDocument(activeUser, searchIndex);
+							{
+								if(issueDocument(activeUser, searchIndex))
+									System.out.println("You have checked out " + query);
+								else
+									System.out.println("Unable to check out document!");
+							}
 						}
 						else
 							System.out.println("Document not found!");
@@ -327,6 +384,7 @@ public class University_Library {
 							sn.nextLine();
 							if(userInput == 1)
 							{
+								System.out.println("test in user input");
 								if(issueDocument(activeUser, searchIndex))
 									System.out.println("You have checked out " + query);
 								else
@@ -453,7 +511,13 @@ public class University_Library {
 							userInput = sn.nextInt();
 							sn.nextLine();
 							if(userInput == 1)
-								issueDocument(activeUser, searchIndex);
+							{
+								System.out.println("test in user input");
+								if(issueDocument(activeUser, searchIndex))
+									System.out.println("You have checked out " + query);
+								else
+									System.out.println("Unable to check out document!");
+							}
 						}
 						else
 							System.out.println("Document not found!");
@@ -553,7 +617,13 @@ public class University_Library {
 							userInput = sn.nextInt();
 							sn.nextLine();
 							if(userInput == 1)
-								issueDocument(activeUser, searchIndex);
+							{
+								System.out.println("test in user input");
+								if(issueDocument(activeUser, searchIndex))
+									System.out.println("You have checked out " + query);
+								else
+									System.out.println("Unable to check out document!");
+							}
 						}
 						else
 							System.out.println("Document not found!");
@@ -725,6 +795,8 @@ public class University_Library {
 		}
 	}
 
+	//Main function of program. Includes main page of program and routes users
+	//based on specified account type
 	public static void main(String[] args) {
 		documents = new ArrayList<Documents>();
 		System.out.println("Initializing Library...");
@@ -735,7 +807,7 @@ public class University_Library {
 		System.out.println("Complete!\n\n");
 		System.out.println("Welcome to the University Library");
 		
-		sn = new Scanner(System.in);
+		sn = new Scanner(System.in); //initilize Scanner class to receive input from console
 		int userInput;
 		boolean loop = true;
 		do {
@@ -746,7 +818,7 @@ public class University_Library {
 							+ "\t[3] Librarian\n"
 							+ "\t[4] Exit Program\n"
 					+ "Input Here: ");
-			userInput = sn.nextInt(); // receive int input from user
+			userInput = sn.nextInt();
 			sn.nextLine();
 			switch (userInput) {
 				case 1:
@@ -769,9 +841,9 @@ public class University_Library {
 			}
 		} while (loop);
 		
-		saveDocuments();
-		saveUsers();
+		saveDocuments(); //saves documents and users
+		saveUsers();     //upon termination of program
 		System.out.println("\nGood-Bye!");
-		sn.close();
+		sn.close(); //close Scanner for good style
 	}
 }

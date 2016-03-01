@@ -2,9 +2,7 @@ package edu.txstate.simpleLib_mlf96;
 
 import java.util.ArrayList;
 
-/**
- * 
- */
+//Superclass for Staff, Faculty, and Student class.
 public class User {
 
     //Default Constructor
@@ -23,15 +21,15 @@ public class User {
     	documentsCheckedOut = new ArrayList<Documents>();
     }
 
-    protected String name;
-    protected int accountNumber;
-    protected String accountType;
-    protected int maxBookLimit;
-    protected ArrayList<Documents> documentsCheckedOut;
-    protected int shortLoanPeriod = 3;
-    protected int longLoanPeriod;
+    protected String name;				//name of user
+    protected int accountNumber;		//accountID for user
+    protected String accountType;		//account type of use (Librarian, Student, or Faculty)
+    protected int maxBookLimit;			//maximum books the user of account can borrow
+    protected ArrayList<Documents> documentsCheckedOut;	//list of documents the user is currently borrowing
+    protected int shortLoanPeriod = 3;	//period of time the user can borrow journals
+    protected int longLoanPeriod;		//period of time the user can borrow most documents
 
-    //
+    //function to allow user to change name on account
     public void updateInfo(String nameUpdate) {
         name = nameUpdate;
     }

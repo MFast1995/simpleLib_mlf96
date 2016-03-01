@@ -1,28 +1,88 @@
 Dave Stacey
 1
 faculty
+0
 
 April Sales
 2
 faculty
+0
 
 Katie Shaw
 3
 student
+6
+Books
+Hadoop Big data
+Yahoo press
+10/15/2010
+1449389732
+White Tom
+Books
+Database Systems
+CRC Press
+10/10/2013
+1111969604
+Rob Smith
+Books
+Hadoop Big data
+Yahoo press
+10/15/2010
+1449389732
+White Tom
+Books
+Database Systems
+CRC Press
+10/10/2013
+1111969604
+Rob Smith
+Books
+Hadoop Big data
+Yahoo press
+10/15/2010
+1449389732
+White Tom
+Books
+Database Systems
+CRC Press
+10/10/2013
+1111969604
+Rob Smith
 
 Ging Henie
 4
 student
+1
+Books
+Warriors
+Harper Collins
+02-02-2014
+123456677
+Erin Hunter
 
-Roy Flores
+Cody Kern
 5
 librarian
+1
+Books
+Database Systems
+CRC Press
+10/10/2013
+1111969604
+Rob Smith
 
 Elizabeth Harwell
 6
 librarian
+0
 
 Anne Ngu
 7
 faculty
+0
+
+Michelle Fast
+8
+student
+0
 
