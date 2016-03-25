@@ -12,29 +12,31 @@ public class MainMenuConsoleWindow extends ConsoleWindow{
 	
 	protected void printMenu() {
 		System.out.println(
-				"\n1. Switch to user view. \n"
-				+ "2. Switch to librarian view. \n"
-				+"3. Switch to Admin view. \n"
-				+ "4. Exit program.");
-		}
+				"Are you: \n" 
+					+ "\t[1] Student\n" 
+					+ "\t[2] Faculty\n" 
+					+ "\t[3] Librarian\n"
+					+ "\t[4] Exit Program\n"
+				+ "Input Here: ");
+	}
+	
 	public void start() {
 		int choice = 0;
 		boolean exitProgram = false;
 		do {
-			printMenu();
-			
+			printMenu();	
 			try {
 				choice = sc.nextInt();
 				sc.nextLine(); //clear the new line character from the input
 				switch (choice) {
 					case 1: 
-						UserView(); 
+						UserView.printMenu(); 
 						break;
 					case 2: 
-						LibrarianView(); 
+						AdminView(); 
 						break;
 					case 3: 
-						AdminView(); 
+						LibrarianView();
 						break;
 					case 4: 
 						exitProgram = true; 
@@ -44,12 +46,12 @@ public class MainMenuConsoleWindow extends ConsoleWindow{
 						"Please select a number between 1 and 4.");
 			}
 			} catch (InputMismatchException ex) {
-				System.err.println("Input missmatch. Please Try again.", ex);
+				System.err.println("Input missmatch. Please Try again. \n" + ex);
 				sc.nextLine(); //clear the new line character from the input
 			} catch (UnsupportedOperationException ex) {
 				ex.printStackTrace(); //For debugging purposes only.
 			} catch (Exception ex) {
-				System.err.println( "An unknown error has occured.", ex);
+				System.err.println( "An unknown error has occured. \n" + ex);
 			}
 		} while (!exitProgram);
 	}

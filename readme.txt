@@ -1,7 +1,8 @@
 Welcome to the University Library
 
 Upon opening, the program will initialize the user and documents
-ArrayList from the specified files (declared at the top of the University_Library class)
+ArrayList from the specified files (declared at the top of the 
+University_Library class)
 
 Once initialized, the program will ask if you are a student, 
 faculty, or librarian. Or if you want to exit the program. Exiting 
@@ -85,3 +86,29 @@ Errors and Issues
 
 	+Authors, even multiple, are stored as a string instead of 
 	multiple Author classes
+
+
+********************************
+Things that need to be done
+********************************
+	+Consolidate all stored data into one files instead of having
+	multiple files for each part of the data
+
+	+Implement console classes and separate the console from the 
+	main part of the program
+
+	+Implement 3rd seach method
+
+	+Modify search methods to follow proper Strategy design pattern
+
+	+Modify the data type of the documents and user list to a more 
+	fitting data type because not everything needs to be an
+	ArrayList (bad on my part)
+
+	+Provide different ways to save/load library data
+
+	+"Restructure your simpleLib such that only one instance of 
+	the persistence management object (such as LibData) is 
+	running at a time." -from homework
+
+	+Documentation, documentation, documentation
