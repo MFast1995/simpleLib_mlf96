@@ -30,7 +30,7 @@ public class MainMenuConsoleWindow extends ConsoleWindow{
 				sc.nextLine(); //clear the new line character from the input
 				switch (choice) {
 					case 1: 
-						UserView.printMenu(); 
+						UserView(); 
 						break;
 					case 2: 
 						AdminView(); 
@@ -42,8 +42,7 @@ public class MainMenuConsoleWindow extends ConsoleWindow{
 						exitProgram = true; 
 						break;
 					default: 
-						System.err .println(
-						"Please select a number between 1 and 4.");
+						System.err .println("Please select a number between 1 and 4.");
 			}
 			} catch (InputMismatchException ex) {
 				System.err.println("Input missmatch. Please Try again. \n" + ex);

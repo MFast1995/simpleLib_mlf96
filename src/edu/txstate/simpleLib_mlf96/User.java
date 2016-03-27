@@ -7,8 +7,6 @@ public class User {
 
     //Default Constructor
     public User() {
-    	name = "John Smith";
-    	accountNumber = -1;
     	accountType = "none";
     	documentsCheckedOut = new ArrayList<Documents>();
     }

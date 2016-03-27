@@ -14,9 +14,10 @@ import java.util.ArrayList;
 public class University_Library {
 	private static ArrayList<Documents> documents; //an array list of all documents of the library		-need to change how documents are stored in more efficient manner
 	private static ArrayList<User> users; //an array list of all registered users						-and same here
-	private static String userFile = "input/users.txt"; //file containing users for saving				
-	private static String bookFile = "input/books.txt"; //file containing books for saving				-need to consolidate into one major file for storage
-	private static String journalFile = "input/journals.txt"; //file contains journals for saving
+	private static String userFile = "input/users.txt"; //file containing users for saving				|
+	private static String bookFile = "input/books.txt"; //file containing books for saving				| need to consolidate into one major file for storage
+	private static String journalFile = "input/journals.txt"; //file contains journals for saving		|
+	private String libraryData = "input/LibData.txt"; 	//file to contain all library data				<-- Into this one
 	private static Scanner sn; //Scanner declaration for accepting user input
 
 	// Function is called when the program is started
@@ -273,9 +274,12 @@ public class University_Library {
 		return -1;
 	}
 	
-	//function to search documents list by Publisher 							**NEEDS TO BE IMPLEMENTED
+	//function to search documents list by Publisher
 	private static int searchPublisher(String query)
-	{
+	{	
+		for(Documents document : documents)
+			if(document.publisher.equals(query))
+				return documents.indexOf(document);
 		return -1;
 	}
 	
