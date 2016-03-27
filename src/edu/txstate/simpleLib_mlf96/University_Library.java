@@ -132,7 +132,7 @@ public class University_Library {
 	// Returns found User or null
 	// accountID: specifies ID of desired User
 	// accountType: specifies type of account to find
-	private static User searchUser(int accountID, String accountType) {
+	protected static User searchUser(int accountID, String accountType) {
 		User activeUser = null;
 		for (User user : users)
 			if (user.accountNumber == accountID && user.accountType.equals(accountType))
@@ -143,7 +143,7 @@ public class University_Library {
 	// Function to register user and add to users ArrayList
 	// name: name of new user
 	// type: type of account to be created
-	private static int registration(String name, String type) {
+	protected static int registration(String name, String type) {
 		int accountID = users.size() + 1;
 		if (type.equals("faculty"))
 			users.add(new Faculty(name, accountID));
@@ -257,7 +257,7 @@ public class University_Library {
 	}
 	
 	//function to search documents ArrayList by Author
-	private static int searchAuthor(String query)
+	protected int searchAuthor(String query)
 	{
 		for (Documents document : documents)
 			if(document.authors.equals(query))
@@ -266,7 +266,7 @@ public class University_Library {
 	}
 	
 	//function to search documents ArrayList by Title
-	private static int searchTitle(String query)
+	protected int searchTitle(String query)
 	{
 		for(Documents document : documents)
 			if(document.title.equals(query))
@@ -275,7 +275,7 @@ public class University_Library {
 	}
 	
 	//function to search documents list by Publisher
-	private static int searchPublisher(String query)
+	protected static int searchPublisher(String query)
 	{	
 		for(Documents document : documents)
 			if(document.publisher.equals(query))
@@ -284,7 +284,7 @@ public class University_Library {
 	}
 	
 	//function to allow user to borrow specified document
-	private static boolean issueDocument(User user, int documentIndex) {
+	protected static boolean issueDocument(User user, int documentIndex) {
 		int booksCheckedOut = user.documentsCheckedOut.size();
 		if(documents.get(documentIndex).numberOfCopies > 0 && booksCheckedOut < user.maxBookLimit)
 		{
@@ -312,7 +312,7 @@ public class University_Library {
 	}
 
 	//function to allow user to return specified document
-	private static boolean returnDocument(User user, int documentIndex){						
+	protected static boolean returnDocument(User user, int documentIndex){						
 		for(Documents document : documents)
 			if(document.title.equals(user.documentsCheckedOut.get(documentIndex).title))
 			{
@@ -809,15 +809,15 @@ public class University_Library {
 	//based on specified account type
 	public static void main(String[] args) {
 		documents = new ArrayList<Documents>();
-		System.out.println("Initializing Library...");
-		System.out.println("Importing documents...");
 		initializeDocuments();
-		System.out.println("Importing users...");
 		initializeUsers();
-		System.out.println("Complete!\n\n");
 		System.out.println("Welcome to the University Library");
 		
-		sn = new Scanner(System.in); //initilize Scanner class to receive input from console
+		MainMenuConsoleWindow mainMenu = new MainMenuConsoleWindow();
+		mainMenu.start();
+		
+		/*
+		sn = new Scanner(System.in);
 		int userInput;
 		boolean loop = true;
 		do {
@@ -850,10 +850,11 @@ public class University_Library {
 					break;
 			}
 		} while (loop);
-		
-		saveDocuments(); //saves documents and users
-		saveUsers();     //upon termination of program
+		*/
+		//saveDocuments(); //saves documents and users
+		//saveUsers();     //upon termination of program
+		//saveLibData();
 		System.out.println("\nGood-Bye!");
-		sn.close(); //close Scanner for good style
+		//sn.close(); //close Scanner for good style
 	}
 }

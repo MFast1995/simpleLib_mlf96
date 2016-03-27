@@ -6,6 +6,8 @@ import java.util.InputMismatchException;
 //does not work in any way whatsoever
 
 public class MainMenuConsoleWindow extends ConsoleWindow{
+	public MainMenuConsoleWindow(){	}
+	
 	public MainMenuConsoleWindow(University_Library lib) {
 			MainMenuConsoleWindow.libs = lib;
 	}
@@ -30,13 +32,16 @@ public class MainMenuConsoleWindow extends ConsoleWindow{
 				sc.nextLine(); //clear the new line character from the input
 				switch (choice) {
 					case 1: 
-						UserView(); 
+						UserView userView = new UserView(); 
+						userView.printMenu();
 						break;
 					case 2: 
-						AdminView(); 
+						AdminView adminView = new AdminView();
+						adminView.printMenu();
 						break;
 					case 3: 
-						LibrarianView();
+						LibrarianView librarianView = new LibrarianView();
+						librarianView.printMenu();
 						break;
 					case 4: 
 						exitProgram = true; 
@@ -45,7 +50,7 @@ public class MainMenuConsoleWindow extends ConsoleWindow{
 						System.err .println("Please select a number between 1 and 4.");
 			}
 			} catch (InputMismatchException ex) {
-				System.err.println("Input missmatch. Please Try again. \n" + ex);
+				System.err.println("Input mismatch. Please Try again. \n" + ex);
 				sc.nextLine(); //clear the new line character from the input
 			} catch (UnsupportedOperationException ex) {
 				ex.printStackTrace(); //For debugging purposes only.
