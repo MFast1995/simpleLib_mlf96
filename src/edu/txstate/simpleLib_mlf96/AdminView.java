@@ -57,6 +57,8 @@ public class AdminView extends ConsoleWindow {
 		}
 
 	}
+
+    //Method to see if the user has borrowed books.
     protected void borrowedDocs()
     {
         int query;
@@ -83,7 +85,7 @@ public class AdminView extends ConsoleWindow {
                 else
                 {
                     if(libs.returnDocument(activeUser, query))
-                        System.out.println("Return succesful");
+                        System.out.println("Return successful");
                     else
                         System.out.println("Return NOT Successful");
                 }

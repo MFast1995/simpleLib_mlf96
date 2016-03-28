@@ -99,7 +99,7 @@ public class UserView extends ConsoleWindow {
 					System.out.println("Document not found!");
 				break;
 			case 4: 
-				
+                borrowedDocs();
 				break;
 			default:
 				
@@ -107,4 +107,39 @@ public class UserView extends ConsoleWindow {
 		}
 		
 	}
+
+    //Method to see if the user has borrowed books.
+    protected void borrowedDocs()
+    {
+        int query;
+        if(activeUser.documentsCheckedOut.size() <= 0)
+            System.out.println("No Documents have been checked out!");
+        else
+        {
+            for(Documents document : activeUser.documentsCheckedOut)
+                System.out.println("[" + activeUser.documentsCheckedOut.indexOf(document)
+                        + "] " + document.title);
+            System.out.println("Would you like to return a document?\n"
+                    + "\t[1] Yes\n"
+                    + "\t[2] No");
+            query = sc.nextInt();
+            sc.nextLine();
+            if(query == 1)
+            {
+                System.out.println("Which book?");
+                query = sc.nextInt();
+                sc.nextLine();
+                if(query >= activeUser.documentsCheckedOut.size()
+                        || query < 0)
+                    System.out.println("Cannot Return Document!");
+                else
+                {
+                    if(libs.returnDocument(activeUser, query))
+                        System.out.println("Return successful");
+                    else
+                        System.out.println("Return NOT Successful");
+                }
+            }
+        }
+    }
 }
