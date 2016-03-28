@@ -27,16 +27,76 @@ public class UserView extends ConsoleWindow {
 				System.out.println("Enter your search query: ");
 				query = sc.nextLine();
 				queryIndex = libs.searchTitle(query);
+				if(queryIndex != -1)
+				{
+					System.out.println("\nTitle of Document\t\tNumber Of Copies");
+					System.out.println(libs.documents.get(queryIndex).title + "\t\t\t" 
+							+ libs.documents.get(queryIndex).numberOfCopies + "\n");
+					System.out.println("Would you like to check out this document?\n"
+										+ "\t[1] Yes\n"
+										+ "\t[2] No");
+					input = sc.nextInt();
+					sc.nextLine();
+					if(input == 1)
+					{
+						if(libs.issueDocument(activeUser, queryIndex))
+							System.out.println("You have checked out " + query);
+						else
+							System.out.println("Unable to check out document!");
+					}
+				}
+				else
+					System.out.println("Document not found!");
 				break;
 			case 2:
 				System.out.println("Enter your search query: ");
 				query = sc.nextLine();
 				queryIndex = libs.searchAuthor(query);
+				if(queryIndex != -1)
+				{
+					System.out.println("\nTitle of Document\t\tNumber Of Copies");
+					System.out.println(libs.documents.get(queryIndex).title + "\t\t\t" 
+							+ libs.documents.get(queryIndex).numberOfCopies + "\n");
+					System.out.println("Would you like to check out this document?\n"
+										+ "\t[1] Yes\n"
+										+ "\t[2] No");
+					input = sc.nextInt();
+					sc.nextLine();
+					if(input == 1)
+					{
+						if(libs.issueDocument(activeUser, queryIndex))
+							System.out.println("You have checked out " + query);
+						else
+							System.out.println("Unable to check out document!");
+					}
+				}
+				else
+					System.out.println("Document not found!");
 				break;
 			case 3:
 				System.out.println("Enter your search query: ");
 				query = sc.nextLine();
 				queryIndex = libs.searchPublisher(query);
+				if(queryIndex != -1)
+				{
+					System.out.println("\nTitle of Document\t\tNumber Of Copies");
+					System.out.println(libs.documents.get(queryIndex).title + "\t\t\t" 
+							+ libs.documents.get(queryIndex).numberOfCopies + "\n");
+					System.out.println("Would you like to check out this document?\n"
+										+ "\t[1] Yes\n"
+										+ "\t[2] No");
+					input = sc.nextInt();
+					sc.nextLine();
+					if(input == 1)
+					{
+						if(libs.issueDocument(activeUser, queryIndex))
+							System.out.println("You have checked out " + query);
+						else
+							System.out.println("Unable to check out document!");
+					}
+				}
+				else
+					System.out.println("Document not found!");
 				break;
 			case 4: 
 				
