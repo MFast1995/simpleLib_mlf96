@@ -21,7 +21,6 @@ public class LibrarianView extends ConsoleWindow {
 	protected void receiveInput()
 	{
 		int input = sc.nextInt();
-		sc.nextLine();
 		int queryIndex;
 		String query;
 
