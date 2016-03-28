@@ -5,7 +5,6 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Scanner;
 import java.util.ArrayList;
 
 // This class contains the main portion of the program.
