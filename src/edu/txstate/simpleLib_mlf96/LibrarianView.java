@@ -13,7 +13,8 @@ public class LibrarianView extends ConsoleWindow {
 					+ "\t[3] Search Library by Publisher\n"
 					+ "\t[4] View Borrowed Books / Return Books\n"
 					+ "\t[5] Add User\n"
-					+ "\t[6] Add Document\n");
+					+ "\t[6] Add Document\n"
+					+ "\t[7] View Checked Out Documents");
 
 		receiveInput();
 	}
@@ -48,6 +49,8 @@ public class LibrarianView extends ConsoleWindow {
 			case 6:
 				addNewUser();
 				break;
+			case 7:
+				viewCheckedOutDocuments();
 			default:
 
 				break;
@@ -81,7 +84,7 @@ public class LibrarianView extends ConsoleWindow {
 				else
 				{
 					if(libs.returnDocument(activeUser, query))
-						System.out.println("Return succesful");
+						System.out.println("Return successful");
 					else
 						System.out.println("Return NOT Successful");
 				}
@@ -126,5 +129,19 @@ public class LibrarianView extends ConsoleWindow {
 		}
 		else
 			System.out.println("Invalid user type. Creation terminated.");
+	}
+	
+	protected void viewCheckedOutDocuments()
+	{
+		for(User user: libs.users)
+		{
+			if(user.documentsCheckedOut.size() > 0)
+			{
+				System.out.println(user.name);
+				for(Documents document: user.documentsCheckedOut)
+					System.out.println("......" + document.title);		
+				System.out.println();
+			}
+		}
 	}
 }
