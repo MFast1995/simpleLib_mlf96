@@ -6,7 +6,7 @@ public abstract class ConsoleWindow {
 	
 	protected static University_Library libs = new University_Library();
 	protected static Scanner sc = new Scanner(System.in );
-	User activeUser;
+	static User activeUser;
 	/**
 	* Abstract method. To be implemented by subclasses.
 	*/

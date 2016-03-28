@@ -11,8 +11,8 @@ import java.util.ArrayList;
 // University Library is a system to allow users to search, borrow, and return various
 // documents including books and journals
 public class University_Library {
-	private static ArrayList<Documents> documents; //an array list of all documents of the library		-need to change how documents are stored in more efficient manner
-	private static ArrayList<User> users; //an array list of all registered users						-and same here
+	protected static ArrayList<Documents> documents; //an array list of all documents of the library		-need to change how documents are stored in more efficient manner
+	protected static ArrayList<User> users; //an array list of all registered users						-and same here
 	private static String userFile = "input/users.txt"; //file containing users for saving				|
 	private static String bookFile = "input/books.txt"; //file containing books for saving				| need to consolidate into one major file for storage
 	private static String journalFile = "input/journals.txt"; //file contains journals for saving		|
@@ -304,7 +304,6 @@ public class University_Library {
 				documents.get(documentIndex).numberOfCopies--;
 				return true;
 			}
-			System.out.println("Test in function");
 		}
 		return false;
 	}
