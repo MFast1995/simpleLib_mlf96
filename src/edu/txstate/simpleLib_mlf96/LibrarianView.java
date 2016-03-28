@@ -32,16 +32,76 @@ public class LibrarianView extends ConsoleWindow {
 				System.out.println("Enter your search query: ");
 				query = sc.nextLine();
 				queryIndex = libs.searchTitle(query);
+				if(queryIndex != -1)
+				{
+					System.out.println("\nTitle of Document\t\tNumber Of Copies");
+					System.out.println(University_Library.documents.get(queryIndex).title + "\t\t\t" 
+							+ University_Library.documents.get(queryIndex).numberOfCopies + "\n");
+					System.out.println("Would you like to check out this document?\n"
+										+ "\t[1] Yes\n"
+										+ "\t[2] No");
+					input = sc.nextInt();
+					sc.nextLine();
+					if(input == 1)
+					{
+						if(libs.issueDocument(activeUser, queryIndex))
+							System.out.println("You have checked out " + query);
+						else
+							System.out.println("Unable to check out document!");
+					}
+				}
+				else
+					System.out.println("Document not found!");
 				break;
 			case 2:
 				System.out.println("Enter your search query: ");
 				query = sc.nextLine();
 				queryIndex = libs.searchAuthor(query);
+				if(queryIndex != -1)
+				{
+					System.out.println("\nTitle of Document\t\tNumber Of Copies");
+					System.out.println(University_Library.documents.get(queryIndex).title + "\t\t\t" 
+							+ University_Library.documents.get(queryIndex).numberOfCopies + "\n");
+					System.out.println("Would you like to check out this document?\n"
+										+ "\t[1] Yes\n"
+										+ "\t[2] No");
+					input = sc.nextInt();
+					sc.nextLine();
+					if(input == 1)
+					{
+						if(libs.issueDocument(activeUser, queryIndex))
+							System.out.println("You have checked out " + query);
+						else
+							System.out.println("Unable to check out document!");
+					}
+				}
+				else
+					System.out.println("Document not found!");
 				break;
 			case 3:
 				System.out.println("Enter your search query: ");
 				query = sc.nextLine();
 				queryIndex = libs.searchPublisher(query);
+				if(queryIndex != -1)
+				{
+					System.out.println("\nTitle of Document\t\tNumber Of Copies");
+					System.out.println(University_Library.documents.get(queryIndex).title + "\t\t\t" 
+							+ University_Library.documents.get(queryIndex).numberOfCopies + "\n");
+					System.out.println("Would you like to check out this document?\n"
+										+ "\t[1] Yes\n"
+										+ "\t[2] No");
+					input = sc.nextInt();
+					sc.nextLine();
+					if(input == 1)
+					{
+						if(libs.issueDocument(activeUser, queryIndex))
+							System.out.println("You have checked out " + query);
+						else
+							System.out.println("Unable to check out document!");
+					}
+				}
+				else
+					System.out.println("Document not found!");
 				break;
 			case 4:
 				borrowedDocs();
@@ -55,7 +115,7 @@ public class LibrarianView extends ConsoleWindow {
 			case 7:
 				viewCheckedOutDocuments();
 			default:
-
+				System.err.println("Please select a number between 1 and 7.");
 				break;
 		}
 
@@ -160,7 +220,7 @@ public class LibrarianView extends ConsoleWindow {
 			 System.out.print("Authors: ");
 			 authors = sc.nextLine();
 			 
-			 libs.documents.add(new Books(title, publisher, date, ISBN,
+			 University_Library.documents.add(new Books(title, publisher, date, ISBN,
 					 copies, authors, "library"));
 			 System.out.println("Doucment Created.");
 		}
@@ -184,7 +244,7 @@ public class LibrarianView extends ConsoleWindow {
 			 copies = sc.nextInt();
 			 sc.nextLine();
 			 
-			 libs.documents.add(new Journals(title, date, volume, issue,
+			 University_Library.documents.add(new Journals(title, date, volume, issue,
 					 publisher, articles, copies, "library"));
 			 System.out.println("Doucment Created.");
 		}
@@ -194,7 +254,7 @@ public class LibrarianView extends ConsoleWindow {
 	
 	protected void viewCheckedOutDocuments()
 	{
-		for(User user: libs.users)
+		for(User user: University_Library.users)
 		{
 			if(user.documentsCheckedOut.size() > 0)
 			{

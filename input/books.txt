@@ -18,7 +18,7 @@ Database Systems
 CRC Press
 10/10/2013
 1111969604
-4
+5
 Rob Smith
 library
 
@@ -50,7 +50,7 @@ Warriors
 Harper Collins
 02-02-2014
 123456677
-2
+1
 Erin Hunter
 library
 

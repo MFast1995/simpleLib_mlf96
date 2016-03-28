@@ -26,9 +26,4 @@ public class User {
     protected ArrayList<Documents> documentsCheckedOut;	//list of documents the user is currently borrowing
     protected int shortLoanPeriod = 3;	//period of time the user can borrow journals
     protected int longLoanPeriod;		//period of time the user can borrow most documents
-
-    //function to allow user to change name on account
-    //public void updateInfo(String nameUpdate) {
-    //    name = nameUpdate;
-    //}
 }

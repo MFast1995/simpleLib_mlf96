@@ -11,13 +11,7 @@ faculty
 Sean Miller
 3
 student
-6
-Books
-Database Systems
-CRC Press
-10/10/2013
-1111969604
-Rob Smith
+5
 Books
 Hadoop Big data
 Yahoo press
@@ -86,7 +80,13 @@ Rob Smith
 Elizabeth Harwell
 6
 librarian
-0
+1
+Books
+Warriors
+Harper Collins
+02-02-2014
+123456677
+Erin Hunter
 
 Anne Ngu
 7

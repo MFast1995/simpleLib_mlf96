@@ -23,7 +23,7 @@ public class AdminView extends ConsoleWindow {
 		int input = sc.nextInt();
 		sc.nextLine();
 		String query;
-		int queryIndex = -1;
+		int queryIndex;
 
 		switch(input)
 		{
@@ -31,16 +31,76 @@ public class AdminView extends ConsoleWindow {
 				System.out.println("Enter your search query: ");
 				query = sc.nextLine();
 				queryIndex = libs.searchTitle(query);
+				if(queryIndex != -1)
+				{
+					System.out.println("\nTitle of Document\t\tNumber Of Copies");
+					System.out.println(University_Library.documents.get(queryIndex).title + "\t\t\t" 
+							+ University_Library.documents.get(queryIndex).numberOfCopies + "\n");
+					System.out.println("Would you like to check out this document?\n"
+										+ "\t[1] Yes\n"
+										+ "\t[2] No");
+					input = sc.nextInt();
+					sc.nextLine();
+					if(input == 1)
+					{
+						if(libs.issueDocument(activeUser, queryIndex))
+							System.out.println("You have checked out " + query);
+						else
+							System.out.println("Unable to check out document!");
+					}
+				}
+				else
+					System.out.println("Document not found!");
 				break;
 			case 2:
 				System.out.println("Enter your search query: ");
 				query = sc.nextLine();
 				queryIndex = libs.searchAuthor(query);
+				if(queryIndex != -1)
+				{
+					System.out.println("\nTitle of Document\t\tNumber Of Copies");
+					System.out.println(University_Library.documents.get(queryIndex).title + "\t\t\t" 
+							+ University_Library.documents.get(queryIndex).numberOfCopies + "\n");
+					System.out.println("Would you like to check out this document?\n"
+										+ "\t[1] Yes\n"
+										+ "\t[2] No");
+					input = sc.nextInt();
+					sc.nextLine();
+					if(input == 1)
+					{
+						if(libs.issueDocument(activeUser, queryIndex))
+							System.out.println("You have checked out " + query);
+						else
+							System.out.println("Unable to check out document!");
+					}
+				}
+				else
+					System.out.println("Document not found!");
 				break;
 			case 3:
                 System.out.println("Enter your search query: ");
                 query = sc.nextLine();
                 queryIndex = libs.searchPublisher(query);
+                if(queryIndex != -1)
+				{
+					System.out.println("\nTitle of Document\t\tNumber Of Copies");
+					System.out.println(University_Library.documents.get(queryIndex).title + "\t\t\t" 
+							+ University_Library.documents.get(queryIndex).numberOfCopies + "\n");
+					System.out.println("Would you like to check out this document?\n"
+										+ "\t[1] Yes\n"
+										+ "\t[2] No");
+					input = sc.nextInt();
+					sc.nextLine();
+					if(input == 1)
+					{
+						if(libs.issueDocument(activeUser, queryIndex))
+							System.out.println("You have checked out " + query);
+						else
+							System.out.println("Unable to check out document!");
+					}
+				}
+				else
+					System.out.println("Document not found!");
 				break;
             case 4:
                 borrowedDocs();
@@ -52,7 +112,7 @@ public class AdminView extends ConsoleWindow {
                 viewUsers();
                 break;
 			default:
-
+				System.err.println("Please select a number between 1 and 6.");
 				break;
 		}
 
@@ -134,7 +194,7 @@ public class AdminView extends ConsoleWindow {
 
     protected void viewUsers()
     {
-        int input;
+    	int input;
         System.out.println("User List:");
         libs.listUsers();
 
@@ -143,8 +203,9 @@ public class AdminView extends ConsoleWindow {
                 + "\t[2] No");
         input = sc.nextInt();
         sc.nextLine();
-
-        System.out.println("Sorry you can't remove users who still have books checked out!");
+        
+        if(input == 1)
+        	System.out.println("Sorry you can't remove users who still have books checked out!");
     }
 
 }

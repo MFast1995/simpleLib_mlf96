@@ -289,7 +289,7 @@ public class University_Library {
 	}
 	
 	//function to allow user to borrow specified document
-	protected static boolean issueDocument(User user, int documentIndex) {
+	protected boolean issueDocument(User user, int documentIndex) {
 		int booksCheckedOut = user.documentsCheckedOut.size();
 		if(documents.get(documentIndex).numberOfCopies > 0 && booksCheckedOut < user.maxBookLimit)
 		{

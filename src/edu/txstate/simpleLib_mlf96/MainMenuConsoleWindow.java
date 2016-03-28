@@ -40,6 +40,7 @@ public class MainMenuConsoleWindow extends ConsoleWindow{
 						if(activeUser != null)
 						{
 							UserView userView = new UserView(); 
+							System.out.println("Hello " + activeUser.name);
 							userView.printMenu();
 						}
 						else

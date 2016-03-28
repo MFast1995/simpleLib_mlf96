@@ -30,8 +30,8 @@ public class UserView extends ConsoleWindow {
 				if(queryIndex != -1)
 				{
 					System.out.println("\nTitle of Document\t\tNumber Of Copies");
-					System.out.println(libs.documents.get(queryIndex).title + "\t\t\t" 
-							+ libs.documents.get(queryIndex).numberOfCopies + "\n");
+					System.out.println(University_Library.documents.get(queryIndex).title + "\t\t\t" 
+							+ University_Library.documents.get(queryIndex).numberOfCopies + "\n");
 					System.out.println("Would you like to check out this document?\n"
 										+ "\t[1] Yes\n"
 										+ "\t[2] No");
@@ -55,8 +55,8 @@ public class UserView extends ConsoleWindow {
 				if(queryIndex != -1)
 				{
 					System.out.println("\nTitle of Document\t\tNumber Of Copies");
-					System.out.println(libs.documents.get(queryIndex).title + "\t\t\t" 
-							+ libs.documents.get(queryIndex).numberOfCopies + "\n");
+					System.out.println(University_Library.documents.get(queryIndex).title + "\t\t\t" 
+							+ University_Library.documents.get(queryIndex).numberOfCopies + "\n");
 					System.out.println("Would you like to check out this document?\n"
 										+ "\t[1] Yes\n"
 										+ "\t[2] No");
@@ -80,8 +80,8 @@ public class UserView extends ConsoleWindow {
 				if(queryIndex != -1)
 				{
 					System.out.println("\nTitle of Document\t\tNumber Of Copies");
-					System.out.println(libs.documents.get(queryIndex).title + "\t\t\t" 
-							+ libs.documents.get(queryIndex).numberOfCopies + "\n");
+					System.out.println(University_Library.documents.get(queryIndex).title + "\t\t\t" 
+							+ University_Library.documents.get(queryIndex).numberOfCopies + "\n");
 					System.out.println("Would you like to check out this document?\n"
 										+ "\t[1] Yes\n"
 										+ "\t[2] No");
@@ -102,7 +102,7 @@ public class UserView extends ConsoleWindow {
                 borrowedDocs();
 				break;
 			default:
-				
+				System.err.println("Please select a number between 1 and 4.");
 				break;
 		}
 		
