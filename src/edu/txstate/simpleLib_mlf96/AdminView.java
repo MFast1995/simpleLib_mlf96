@@ -48,7 +48,7 @@ public class AdminView extends ConsoleWindow {
             case 5:
                 addNewUser();
                 break;
-            case 5:
+            case 6:
                 viewUsers();
                 break;
 			default:
