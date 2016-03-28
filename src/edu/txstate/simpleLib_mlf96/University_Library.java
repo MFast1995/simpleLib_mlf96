@@ -13,63 +13,89 @@ import java.util.ArrayList;
 public class University_Library {
 	protected static ArrayList<Documents> documents; //an array list of all documents of the library
 	protected static ArrayList<User> users; //an array list of all registered users
-	private static String userFile = "input/users.txt"; //file containing users for saving				|
-	private static String bookFile = "input/books.txt"; //file containing books for saving				| need to consolidate into one major file for storage
-	private static String journalFile = "input/journals.txt"; //file contains journals for saving		|
-	//private String libraryData = "input/LibData.txt"; 	//file to contain all library data				<-- Into this one
-
-	// Function is called when the program is started
-	// Initializes all users stored in user file
-	private static void initializeUsers() {
+	private static String libraryData = "input/LibData.txt"; 	//file to contain all library data
+	
+	private static void initializeLibrary()
+	{
 		users = new ArrayList<User>();
-
+		documents = new ArrayList<Documents>();
+		
 		try {
-			FileReader fileReader = new FileReader(userFile);
+			FileReader fileReader = new FileReader(libraryData);
 			BufferedReader bufferedReader = new BufferedReader(fileReader);
 			User activeUser;
-			String name = "";
-			int userID = 0;
-			int documentsCheckedOut = 0;
-			String type = "";
-			String documentType, title, publisher, publishDate, ISBN, authors, articles;
-			int issue, volume;
-			while ((name = bufferedReader.readLine()) != null) {
-				userID = Integer.parseInt(bufferedReader.readLine());
-				type = bufferedReader.readLine();
-				//bufferedReader.readLine();
-				if (type.equals("librarian"))
-					activeUser = new Staff(name, userID);
-				else if (type.equals("faculty"))
-					activeUser = new Faculty(name, userID);
-				else
-					activeUser = new Student(name, userID);
-				users.add(activeUser);
-				documentsCheckedOut = Integer.parseInt(bufferedReader.readLine());
-				for(int x = 0; x < documentsCheckedOut; x++)
+			String dataType = "", name = "", type = "", documentType, title,
+					publisher, publishDate, ISBN, authors, articles, location;
+			int userID = 0, documentsCheckedOut = 0, issue, volume, copiesAvailable;
+			
+			while ((dataType = bufferedReader.readLine()) != null) {
+				if(dataType.equals("User"))
 				{
-					documentType = bufferedReader.readLine();
-					if(documentType.equals("Books"))
-					{
-						title = bufferedReader.readLine();
-						publisher = bufferedReader.readLine();
-						publishDate = bufferedReader.readLine();
-						ISBN = bufferedReader.readLine();
-						authors = bufferedReader.readLine();
-						activeUser.documentsCheckedOut.add(new Books(title, publisher, publishDate, ISBN, 1, authors, name));
-					}
+					name = bufferedReader.readLine();
+					userID = Integer.parseInt(bufferedReader.readLine());
+					type = bufferedReader.readLine();
+					if (type.equals("librarian"))
+						activeUser = new Staff(name, userID);
+					else if (type.equals("faculty"))
+						activeUser = new Faculty(name, userID);
 					else
+						activeUser = new Student(name, userID);
+					users.add(activeUser);
+					documentsCheckedOut = Integer.parseInt(bufferedReader.readLine());
+					for(int x = 0; x < documentsCheckedOut; x++)
 					{
-						title = bufferedReader.readLine();
-						publishDate = bufferedReader.readLine();
-						volume = Integer.parseInt(bufferedReader.readLine());
-						issue = Integer.parseInt(bufferedReader.readLine());
-						publisher = bufferedReader.readLine();
-						articles = bufferedReader.readLine();
-						activeUser.documentsCheckedOut.add(new Journals(title, publishDate, volume, issue, publisher, articles, 1, name));
+						documentType = bufferedReader.readLine();
+						if(documentType.equals("Books"))
+						{
+							title = bufferedReader.readLine();
+							publisher = bufferedReader.readLine();
+							publishDate = bufferedReader.readLine();
+							ISBN = bufferedReader.readLine();
+							authors = bufferedReader.readLine();
+							activeUser.documentsCheckedOut.add(new Books(title, publisher, publishDate, ISBN, 1, authors, name));
+						}
+						else
+						{
+							title = bufferedReader.readLine();
+							publishDate = bufferedReader.readLine();
+							volume = Integer.parseInt(bufferedReader.readLine());
+							issue = Integer.parseInt(bufferedReader.readLine());
+							publisher = bufferedReader.readLine();
+							articles = bufferedReader.readLine();
+							activeUser.documentsCheckedOut.add(new Journals(title, publishDate, volume, issue, publisher, articles, 1, name));
+						}
 					}
+					bufferedReader.readLine();	
 				}
-				bufferedReader.readLine();
-				
+				else if(dataType.equals("Books"))
+				{
+					title = bufferedReader.readLine();
+					publisher = bufferedReader.readLine();
+					publishDate = bufferedReader.readLine();
+					ISBN = bufferedReader.readLine();
+					copiesAvailable = Integer.parseInt(bufferedReader.readLine());
+					authors = bufferedReader.readLine();
+					location = bufferedReader.readLine();
+					bufferedReader.readLine();
+					documents.add(new Books(title, publisher, publishDate, 
+							ISBN, copiesAvailable, authors, location));
+				}
+				else if(dataType.equals("Journals"))
+				{
+					title = bufferedReader.readLine();
+					publishDate = bufferedReader.readLine();
+					volume = Integer.parseInt(bufferedReader.readLine());
+					issue = Integer.parseInt(bufferedReader.readLine());
+					publisher = bufferedReader.readLine();
+					articles = bufferedReader.readLine();
+					copiesAvailable = Integer.parseInt(bufferedReader.readLine());
+					location = bufferedReader.readLine();
+					bufferedReader.readLine();
+					documents.add(new Journals(title, publishDate, volume, issue,
+							publisher, articles, copiesAvailable, location));
+				}
+				else
+					System.err.println("help"); //for debugging uses
 			}
 			bufferedReader.close();
 		} catch (FileNotFoundException ex) {
@@ -79,17 +105,16 @@ public class University_Library {
 		}
 	}
 	
-	//Upon closing the program, saves the user to respective file
-	//in proper format for future initialization
-	private static void saveUsers(){
+	private static void saveLibData()
+	{
 		try{
-			PrintWriter write = new PrintWriter(userFile);
+			PrintWriter write = new PrintWriter(libraryData);
 			for(User user : users)
 			{
+				write.write("User\n");
 				write.write(user.name + "\n");
 				write.write(user.accountNumber + "\n");
 				write.write(user.accountType + "\n");
-				//System.out.println(user.documentsCheckedOut.size());
 				write.write(user.documentsCheckedOut.size() + "\n");
 				for(Documents document : user.documentsCheckedOut)
 				{	
@@ -117,6 +142,34 @@ public class University_Library {
 				}
 				write.write("\n");
 			}
+			for(Documents document : documents)
+			{	
+				if(document instanceof Books)
+				{
+					write.write("Books\n");
+					write.write(document.title + "\n");
+					write.write(document.publisher + "\n");
+					write.write(document.publishedDate + "\n");
+					write.write(((Books)document).ISBN + "\n");
+					write.write(document.numberOfCopies + "\n");
+					write.write(document.authors + "\n");
+					write.write(document.location + "\n\n");
+				}
+				else if(document instanceof Journals)
+				{
+					write.write("Journals\n");
+					write.write(document.title + "\n");
+					write.write(document.publishedDate + "\n");
+					write.write(((Journals)document).volume + "\n");
+					write.write(((Journals)document).issueNumber + "\n");
+					write.write(document.publisher + "\n");
+					write.write(((Journals)document).articles + "\n");
+					write.write(document.numberOfCopies + "\n");
+					write.write(document.location + "\n\n");
+				}
+				else
+					System.out.println("Error saving: " + document.title + "\nIt will not be saved\n");
+			}
 			write.close();
 		}
 		catch(FileNotFoundException ex)
@@ -124,6 +177,8 @@ public class University_Library {
 			System.out.println("Can't open documents file: " + ex);
 		}
 	}
+	
+
 	
 	// Function to search through User ArrayList to find target User
 	// Returns found User or null
@@ -157,108 +212,6 @@ public class University_Library {
 		else
 			users.add(new Student(name, accountID));
 		return accountID;
-	}
-	
-	// Function is called when the program is started
-	// Initializes all documents stored in various document files
-	// (such as books and journals)
-	private static void initializeDocuments() {
-		documents = new ArrayList<Documents>();
-
-		try {
-			FileReader fileReader = new FileReader(bookFile);
-			BufferedReader bufferedReader = new BufferedReader(fileReader);
-			String bookTitle = "";
-			String bookPublisher = "";
-			String bookPublishDate = "";
-			String ISBN = "";
-			int copiesAvailable = 0;
-			String bookAuthor = "";
-			String bookLocation = "";
-
-			while ((bookTitle = bufferedReader.readLine()) != null) {
-				bookPublisher = bufferedReader.readLine();
-				bookPublishDate = bufferedReader.readLine();
-				ISBN = bufferedReader.readLine();
-				copiesAvailable = Integer.parseInt(bufferedReader.readLine());
-				bookAuthor = bufferedReader.readLine();
-				bookLocation = bufferedReader.readLine();
-				bufferedReader.readLine();
-				documents.add(new Books(bookTitle, bookPublisher, bookPublishDate, 
-						ISBN, copiesAvailable, bookAuthor, bookLocation));
-			}
-			bufferedReader.close();
-
-			fileReader = new FileReader(journalFile);
-			bufferedReader = new BufferedReader(fileReader);
-			String journalTitle = "";
-			String journalPublishDate = "";
-			int journalVolume = 0;
-			int journalIssue = 0;
-			String journalPublisher = "";
-			String journalArticles = "";
-			int journalCopies = 0;
-			String journalLocation = "";
-
-			while ((journalTitle = bufferedReader.readLine()) != null) {
-				journalPublishDate = bufferedReader.readLine();
-				journalVolume = Integer.parseInt(bufferedReader.readLine());
-				journalIssue = Integer.parseInt(bufferedReader.readLine());
-				journalPublisher = bufferedReader.readLine();
-				journalArticles = bufferedReader.readLine();
-				journalCopies = Integer.parseInt(bufferedReader.readLine());
-				journalLocation = bufferedReader.readLine();
-				bufferedReader.readLine();
-				documents.add(new Journals(journalTitle, journalPublishDate, journalVolume, journalIssue,
-						journalPublisher, journalArticles, journalCopies, journalLocation));
-			}
-			bufferedReader.close();
-		} catch (FileNotFoundException ex) {
-			System.out.println("Can't open documents file: " + ex);
-		} catch (IOException ex) {
-			System.out.println(ex);
-		}
-	}
-	
-	//Upon closing the program, saves the documents to respective files
-	//in proper format
-	private static void saveDocuments(){
-		try{
-			PrintWriter writeBook = new PrintWriter(bookFile);
-			PrintWriter writeJournal = new PrintWriter(journalFile);
-			for(Documents document : documents)
-			{	
-				if(document instanceof Books)
-				{
-					writeBook.write(document.title + "\n");
-					writeBook.write(document.publisher + "\n");
-					writeBook.write(document.publishedDate + "\n");
-					writeBook.write(((Books)document).ISBN + "\n");
-					writeBook.write(document.numberOfCopies + "\n");
-					writeBook.write(document.authors + "\n");
-					writeBook.write(document.location + "\n\n");
-				}
-				else if(document instanceof Journals)
-				{
-					writeJournal.write(document.title + "\n");
-					writeJournal.write(document.publishedDate + "\n");
-					writeJournal.write(((Journals)document).volume + "\n");
-					writeJournal.write(((Journals)document).issueNumber + "\n");
-					writeJournal.write(document.publisher + "\n");
-					writeJournal.write(((Journals)document).articles + "\n");
-					writeJournal.write(document.numberOfCopies + "\n");
-					writeJournal.write(document.location + "\n\n");
-				}
-				else
-					System.out.println("Error saving: " + document.title + "\nWill not be saved\n");
-			}
-			writeBook.close();
-			writeJournal.close();
-		}
-		catch(FileNotFoundException ex)
-		{
-			System.out.println("Can't open documents file: " + ex);
-		}
 	}
 	
 	//function to search documents ArrayList by Author
@@ -329,18 +282,14 @@ public class University_Library {
 
 	//Main function of program. Includes main page of program and routes users
 	//based on specified account type
-	public static void main(String[] args) {
-		documents = new ArrayList<Documents>();
-		initializeDocuments();
-		initializeUsers();
+	public static void main(String[] args) {		
+		initializeLibrary();
 		System.out.println("Welcome to the University Library");
 		
 		MainMenuConsoleWindow mainMenu = new MainMenuConsoleWindow();
 		mainMenu.start();
-		
-		saveDocuments(); //saves documents and users
-		saveUsers();     //upon termination of program
-		//saveLibData();
+
+		saveLibData();
 		System.out.println("\nGood-Bye!");
 	}
 }

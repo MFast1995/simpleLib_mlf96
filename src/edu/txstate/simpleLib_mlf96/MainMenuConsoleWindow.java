@@ -27,7 +27,7 @@ public class MainMenuConsoleWindow extends ConsoleWindow{
 				sc.nextLine(); //clear the new line character from the input
 				switch (choice) {
 					case 1: 
-						System.out.println("What is your ID number? ");
+						System.out.println("Please input your ID number: ");
 						accountID = sc.nextInt();
 						activeUser = libs.searchUser(accountID, "student");
 						if(activeUser != null)

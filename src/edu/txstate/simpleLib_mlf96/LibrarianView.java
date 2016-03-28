@@ -112,6 +112,7 @@ public class LibrarianView extends ConsoleWindow {
 				break;
 			case 7:
 				viewCheckedOutDocuments();
+				break;
 			default:
 				System.err.println("Please select a number between 1 and 7.");
 				break;
