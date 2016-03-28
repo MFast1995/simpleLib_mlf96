@@ -12,7 +12,9 @@ public class AdminView extends ConsoleWindow {
 					+ "\t[2] Search Library by Author\n"
                     + "\t[3] Search Library by Publisher\n"
 					+ "\t[4] View Borrowed Books / Return Books\n"
-					+ "\t[5] Add User\n");
+					+ "\t[5] Add User\n"
+                    + "\t[6] View/Remove Users\n");
+
         receiveInput();
 	}
 
@@ -45,6 +47,9 @@ public class AdminView extends ConsoleWindow {
                 break;
             case 5:
                 addNewUser();
+                break;
+            case 5:
+                viewUsers();
                 break;
 			default:
 
@@ -123,6 +128,21 @@ public class AdminView extends ConsoleWindow {
         }
         else
             System.out.println("Invalid user type. Creation terminated.");
+    }
+
+    protected void viewUsers()
+    {
+        int input;
+        System.out.println("User List:");
+        libs.listUsers();
+
+        System.out.println("Would you like to remove a user?\n"
+                + "\t[1] Yes\n"
+                + "\t[2] No");
+        input = sc.nextInt();
+        sc.nextLine();
+
+        System.out.println("Sorry you can't remove users who still have books checked out!");
     }
 
 }
