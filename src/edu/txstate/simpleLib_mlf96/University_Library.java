@@ -342,6 +342,5 @@ public class University_Library {
 		saveUsers();     //upon termination of program
 		//saveLibData();
 		System.out.println("\nGood-Bye!");
-		//sn.close(); //close Scanner for good style
 	}
 }

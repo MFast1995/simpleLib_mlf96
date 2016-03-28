@@ -2,17 +2,10 @@ package edu.txstate.simpleLib_mlf96;
 
 import java.util.InputMismatchException;
 
-//*Note* I just copied and pasted from the instructions to here, this
-//does not work in any way whatsoever
-
 public class MainMenuConsoleWindow extends ConsoleWindow{
-	public MainMenuConsoleWindow(){	
-		
-	}
 	
-	public MainMenuConsoleWindow(University_Library lib) {
-			MainMenuConsoleWindow.libs = lib;
-	}
+	//default constructor
+	public MainMenuConsoleWindow(){	}
 	
 	protected void printMenu() {
 		System.out.println(
