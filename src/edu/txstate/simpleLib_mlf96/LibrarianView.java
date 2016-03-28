@@ -46,8 +46,11 @@ public class LibrarianView extends ConsoleWindow {
 			case 4:
 				borrowedDocs();
 				break;
-			case 6:
+			case 5:
 				addNewUser();
+				break;
+			case 6:
+				addNewDocuments();
 				break;
 			case 7:
 				viewCheckedOutDocuments();
@@ -129,6 +132,64 @@ public class LibrarianView extends ConsoleWindow {
 		}
 		else
 			System.out.println("Invalid user type. Creation terminated.");
+	}
+	
+	protected void addNewDocuments()
+	{
+		int userInput;
+		System.out.println("What type of document?\n"
+				+ "\t[1] Book\n"
+				+ "\t[2] Journal\n");
+		userInput = sc.nextInt();
+		sc.nextLine();
+		String title, publisher, date, ISBN, authors, articles;
+		int copies, volume, issue;
+		if(userInput == 1)
+		{
+			 System.out.print("Title: ");
+			 title = sc.nextLine();
+			 System.out.print("Publisher: ");
+			 publisher = sc.nextLine();
+			 System.out.print("Date published: ");
+			 date = sc.nextLine();
+			 System.out.print("ISBN: ");
+			 ISBN = sc.nextLine();
+			 System.out.print("Number of copies: ");
+			 copies = sc.nextInt();
+			 sc.nextLine();
+			 System.out.print("Authors: ");
+			 authors = sc.nextLine();
+			 
+			 libs.documents.add(new Books(title, publisher, date, ISBN,
+					 copies, authors, "library"));
+			 System.out.println("Doucment Created.");
+		}
+		else if(userInput == 2)
+		{
+			 System.out.print("Title: ");
+			 title = sc.nextLine();
+			 System.out.print("Publisher: ");
+			 publisher = sc.nextLine();
+			 System.out.print("Date published: ");
+			 date = sc.nextLine();
+			 System.out.print("Volume: ");
+			 volume = sc.nextInt();
+			 sc.nextLine();
+			 System.out.print("Issue: ");
+			 issue = sc.nextInt();
+			 sc.nextLine();
+			 System.out.print("Articles: ");
+			 articles = sc.nextLine();
+			 System.out.print("Number of copies: ");
+			 copies = sc.nextInt();
+			 sc.nextLine();
+			 
+			 libs.documents.add(new Journals(title, date, volume, issue,
+					 publisher, articles, copies, "library"));
+			 System.out.println("Doucment Created.");
+		}
+		else
+			System.out.println("Invalid choice");
 	}
 	
 	protected void viewCheckedOutDocuments()

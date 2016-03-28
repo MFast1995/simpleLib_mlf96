@@ -1,0 +1,169 @@
+Users
+Dave Stacey
+1
+faculty
+0
+
+April Sales
+2
+faculty
+0
+
+Sean Miller
+3
+student
+1
+Books
+Database Systems
+CRC Press
+10/10/2013
+1111969604
+Rob Smith
+
+Ging Henie
+4
+student
+1
+Books
+Warriors
+Harper Collins
+02-02-2014
+123456677
+Erin Hunter
+
+Cody Kern
+5
+librarian
+0
+
+Elizabeth Harwell
+6
+librarian
+0
+
+Anne Ngu
+7
+faculty
+0
+
+Michelle Fast
+8
+student
+0
+
+Rachel Dawn
+9
+faculty
+0
+
+Books
+Java Programming
+CRC Press
+09/12/2005
+9780203166178
+19
+Jo Wood
+library
+
+Hadoop Big data
+Yahoo press
+10/15/2010
+1449389732
+5
+White Tom
+library
+
+Database Systems
+CRC Press
+10/10/2013
+1111969604
+12
+Rob Smith
+library
+
+Advanced Networking
+John Wiley
+12/09/2009
+9780470534052
+11
+Doug Lowe, Chris Wang
+library
+
+Artificial Intelligence
+Newness
+04/17/2009
+9780080499451
+12
+Nils J. Nilsson
+library
+
+Distributed Algorithms
+MIT Press
+06/12/2013
+9780262318952
+6
+Tom Gedeon
+library
+
+Warriors
+Harper Collins
+02-02-2014
+123456677
+2
+Erin Hunter
+library
+
+The Martian
+Joshua Inc.
+03-27-2016
+321321382139
+99
+Michelle Fast
+library
+
+Journals
+EMERGING TRENDS	in IOT
+08-19-2014
+10
+11
+IEEE Computer
+a1, a2, a3
+1
+library
+
+COMMON FRAMEWORK
+09-20-2014
+10
+11
+Elsevier
+c1, c2, c3
+6
+library
+
+ACM Computing Survey
+10-12-2013
+10
+11
+CACM
+b1, b2, b3, b4
+2
+library
+
+Foundations in Machine Learning
+01-22-2014
+11
+12
+IEEE Society
+e1, e2
+4
+library
+
+Molecular Systems Biology
+10-12-2009
+10
+11
+Springer Verlag
+n1, n2, n4,n5, n6
+3
+library
+

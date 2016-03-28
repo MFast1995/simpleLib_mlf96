@@ -13,12 +13,6 @@ Sean Miller
 student
 6
 Books
-Hadoop Big data
-Yahoo press
-10/15/2010
-1449389732
-White Tom
-Books
 Database Systems
 CRC Press
 10/10/2013
@@ -43,11 +37,17 @@ Yahoo press
 1449389732
 White Tom
 Books
-Database Systems
+Java Programming
 CRC Press
-10/10/2013
-1111969604
-Rob Smith
+09/12/2005
+9780203166178
+Jo Wood
+Books
+The Martian
+Joshua Inc.
+03-27-2016
+321321382139
+Michelle Fast
 
 Ging Henie
 4
@@ -96,5 +96,10 @@ faculty
 Michelle Fast
 8
 student
+0
+
+Rachel Poop
+9
+faculty
 0
 
