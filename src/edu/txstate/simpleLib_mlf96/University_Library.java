@@ -17,8 +17,8 @@ public class University_Library {
 	private static String userFile = "input/users.txt"; //file containing users for saving				|
 	private static String bookFile = "input/books.txt"; //file containing books for saving				| need to consolidate into one major file for storage
 	private static String journalFile = "input/journals.txt"; //file contains journals for saving		|
-	private String libraryData = "input/LibData.txt"; 	//file to contain all library data				<-- Into this one
-	private static Scanner sn; //Scanner declaration for accepting user input
+	//private String libraryData = "input/LibData.txt"; 	//file to contain all library data				<-- Into this one
+	//private static Scanner sn; //Scanner declaration for accepting user input
 
 	// Function is called when the program is started
 	// Initializes all users stored in user file
@@ -46,7 +46,6 @@ public class University_Library {
 				else
 					activeUser = new Student(name, userID);
 				users.add(activeUser);
-					
 				documentsCheckedOut = Integer.parseInt(bufferedReader.readLine());
 				for(int x = 0; x < documentsCheckedOut; x++)
 				{
@@ -132,7 +131,7 @@ public class University_Library {
 	// Returns found User or null
 	// accountID: specifies ID of desired User
 	// accountType: specifies type of account to find
-	protected static User searchUser(int accountID, String accountType) {
+	protected User searchUser(int accountID, String accountType) {
 		User activeUser = null;
 		for (User user : users)
 			if (user.accountNumber == accountID && user.accountType.equals(accountType))
@@ -143,7 +142,7 @@ public class University_Library {
 	// Function to register user and add to users ArrayList
 	// name: name of new user
 	// type: type of account to be created
-	protected static int registration(String name, String type) {
+	protected int registration(String name, String type) {
 		int accountID = users.size() + 1;
 		if (type.equals("faculty"))
 			users.add(new Faculty(name, accountID));
@@ -275,7 +274,7 @@ public class University_Library {
 	}
 	
 	//function to search documents list by Publisher
-	protected static int searchPublisher(String query)
+	protected int searchPublisher(String query)
 	{	
 		for(Documents document : documents)
 			if(document.publisher.equals(query))
@@ -312,7 +311,7 @@ public class University_Library {
 	}
 
 	//function to allow user to return specified document
-	protected static boolean returnDocument(User user, int documentIndex){						
+	protected boolean returnDocument(User user, int documentIndex){						
 		for(Documents document : documents)
 			if(document.title.equals(user.documentsCheckedOut.get(documentIndex).title))
 			{
@@ -323,7 +322,7 @@ public class University_Library {
 		return false;
 	}
 
-	//Displays and maintains options for student account
+	/*Displays and maintains options for student account
 	private static void studentOptions() {
 		System.out.println("Please input accountID: ");
 		sn = new Scanner(System.in);
@@ -428,7 +427,7 @@ public class University_Library {
 								else
 								{
 									if(returnDocument(activeUser, userInput))
-										System.out.println("Return succesful");
+										System.out.println("Return successful");
 									else
 										System.out.println("Return NOT Successful");
 								}
@@ -803,7 +802,7 @@ public class University_Library {
 					loop = false;
 			}while(loop);
 		}
-	}
+	}*/
 
 	//Main function of program. Includes main page of program and routes users
 	//based on specified account type
@@ -851,8 +850,8 @@ public class University_Library {
 			}
 		} while (loop);
 		*/
-		//saveDocuments(); //saves documents and users
-		//saveUsers();     //upon termination of program
+		saveDocuments(); //saves documents and users
+		saveUsers();     //upon termination of program
 		//saveLibData();
 		System.out.println("\nGood-Bye!");
 		//sn.close(); //close Scanner for good style

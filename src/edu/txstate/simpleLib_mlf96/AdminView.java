@@ -8,44 +8,42 @@ public class AdminView extends ConsoleWindow {
 	protected void printMenu() {
 		// TODO Auto-generated method stub
 		System.out.println("What would you like to do?\n"
-					+ "\t[1] Update Account\n"
-					+ "\t[2] Search Library by Title\n" 
-					+ "\t[3] Search Library by Author\n"
-                    + "\t[4] Search Library by Publisher\n"
-					+ "\t[5] View Borrowed Books / Return Books\n"
-					+ "\t[6] Add User\n");
+					+ "\t[1] Search Library by Title\n" 
+					+ "\t[2] Search Library by Author\n"
+                    + "\t[3] Search Library by Publisher\n"
+					+ "\t[4] View Borrowed Books / Return Books\n"
+					+ "\t[5] Add User\n");
         receiveInput();
 	}
 
 	protected void receiveInput()
 	{
 		int input = sc.nextInt();
+		sc.nextLine();
 		String query;
+		int queryIndex = -1;
 
 		switch(input)
 		{
 			case 1:
-
+				System.out.println("Enter your search query: ");
+				query = sc.nextLine();
+				queryIndex = libs.searchTitle(query);
 				break;
 			case 2:
 				System.out.println("Enter your search query: ");
 				query = sc.nextLine();
-				libs.searchTitle(query);
+				queryIndex = libs.searchAuthor(query);
 				break;
 			case 3:
-				System.out.println("Enter your search query: ");
-				query = sc.nextLine();
-				libs.searchAuthor(query);
-				break;
-			case 4:
                 System.out.println("Enter your search query: ");
                 query = sc.nextLine();
-                libs.searchAuthor(query); //Change to Publisher search.
+                queryIndex = libs.searchPublisher(query);
 				break;
-            case 5:
+            case 4:
                 borrowedDocs();
                 break;
-            case 6:
+            case 5:
                 addNewUser();
                 break;
 			default:

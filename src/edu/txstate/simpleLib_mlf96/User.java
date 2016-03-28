@@ -28,7 +28,7 @@ public class User {
     protected int longLoanPeriod;		//period of time the user can borrow most documents
 
     //function to allow user to change name on account
-    public void updateInfo(String nameUpdate) {
-        name = nameUpdate;
-    }
+    //public void updateInfo(String nameUpdate) {
+    //    name = nameUpdate;
+    //}
 }
