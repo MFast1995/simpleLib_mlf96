@@ -137,6 +137,14 @@ public class University_Library {
 				activeUser = user;
 		return activeUser;
 	}
+
+    //Function to search and display all users in ArrayList.
+    //Doesn't return anything.
+    protected void listUsers(){
+        for (User user : users) {
+            System.out.println("[" + user.accountNumber + "] " + user.name);
+        }
+    }
 	
 	// Function to register user and add to users ArrayList
 	// name: name of new user
