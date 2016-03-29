@@ -105,7 +105,7 @@ public class University_Library {
             case 2:
                 try
                 {
-                    FileInputStream fileIn = new FileInputStream("LibData.ser");
+                    FileInputStream fileIn = new FileInputStream("input/LibData.ser");
                     ObjectInputStream in = new ObjectInputStream(fileIn);
                     users = (ArrayList<User>) in.readObject();
                     documents = (ArrayList<Documents>) in.readObject();
@@ -202,18 +202,18 @@ public class University_Library {
 
         //////////////////////////////////////////////////////////////////
         //This parts serializes the objects to be written to a .ser file//
+		//This code is so cool											//
         //////////////////////////////////////////////////////////////////
 
         try
         {
             FileOutputStream fileOut =
-                    new FileOutputStream("LibData.ser");
+                    new FileOutputStream("input/LibData.ser");
             ObjectOutputStream out = new ObjectOutputStream(fileOut);
             out.writeObject(users);
             out.writeObject(documents);
             out.close();
             fileOut.close();
-            System.out.printf("Serialized data is saved in /tmp/employee.ser");
         }catch(IOException i)
         {
             i.printStackTrace();
