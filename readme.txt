@@ -1,8 +1,10 @@
 Welcome to the University Library
 
-Upon opening, the program will initialize the user and documents
-ArrayList from the specified file (declared at the top of the 
-University_Library class)
+Upon opening, the program will prompt the user what file they want
+to receive input from. Two options are available: text file and
+serial. Press the corresponding number to the file you want to
+import. The program will then initialize the user and documents
+ArrayList from the specified file.
 
 Once initialized, the program will ask if you are a student, 
 faculty, or librarian, or if you want to exit the program. Exiting 
@@ -28,7 +30,7 @@ accounts are able to search documents, borrow, and return. Faculty
 (admin) accounts are able to search the library, borrow, return, 
 add users, and view/remove users. Librarian accounts  can search
 documents, borrow, return, add users, add documents, and view
-all documetns that have been checked out.
+all documents that have been checked out.
 
 Search Library by Title
 	This will prompt the user to enter a title (case sensitive). The
@@ -69,21 +71,21 @@ View Borrowed Books / Return Books
 	return. Doing so will remove the document from thier borrowed
 	list and add the document back to the documents ArrayList.
 
-Add User
+Add User (Admin and Librarian View Only)
 	This will prompt the user for a name to go with the new account
 	and the type of account.
 
-Add Document 
+Add Document (Librarian View Only)
 	This will prompt the user for what type of document they wish to 
 	enter. Depending on document chosen, will prompt for various 
 	attributes of the document one by one. 
 
-View/Remove Users
+View/Remove Users (Admin View Only)
 	This will list all users that currently have an account ID with
 	the library. It will then prompt the user if they want to 
 	remove a user.
 
-View Checked Out Documents
+View Checked Out Documents (Librarian View Only)
 	This will list all documents checked out the library along with
 	the name of the borrower.
 

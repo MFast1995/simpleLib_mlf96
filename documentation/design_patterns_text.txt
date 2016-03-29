@@ -1,0 +1,57 @@
+Michelle Fast and Joshua Galindo
+Homework 3
+Anne Ngu
+Object Oriented Design and Implementation
+
+2a - Stratrgy Design Pattern
+
+	-----------------------------------------------------------------------------
+	| Context				|	MainMenuConsoleWindow							|
+	-----------------------------------------------------------------------------
+	| Strategy				|	UserView/AdminView/LibrarianView				|
+	-----------------------------------------------------------------------------
+	| Concrete				|	University_Library								|
+	-----------------------------------------------------------------------------
+	| doWork()				|	searchTitle()/searchAuthor()/searchPublisher()	|
+	-----------------------------------------------------------------------------
+
+	Consequences: Client decides which strategy is best
+
+				  New algorithms can be easily added 
+
+
+
+2b - Bridge Design Pattern
+
+	-----------------------------------------------------------------------------
+	| Abstraction			|	ConsoleWindow									|
+	-----------------------------------------------------------------------------
+	| Refined Abstraction	|	MainMenuConsoleWindow							|
+	-----------------------------------------------------------------------------
+	| Implementor			|	UserView/AdminView/LibrarianView				|
+	-----------------------------------------------------------------------------
+	| ConcreteImplementor	|	University_Library								|
+	-----------------------------------------------------------------------------
+
+	Consequences: Client cannot some concrete implementations
+
+				  Easily extendable
+
+				  Implementation is chosen at runtime
+
+
+2c - Singleton Design Pattern
+
+	-----------------------------------------------------------------------------
+	| Instance				|	LibData											|
+	-----------------------------------------------------------------------------
+	| getInstance			|	intializeLibrary()								|
+	-----------------------------------------------------------------------------
+
+	Consequences: Single point of access
+
+				  Consistent changes to system
+
+				  More efficient
+
+				  Only one copy of an instance exists
