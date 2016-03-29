@@ -1,8 +1,10 @@
 package edu.txstate.simpleLib_mlf96;
 
+import java.io.Serializable;
+
 //Super class for Books and Journals.
 //For documents stored in or borrowed from library
-public class Documents {
+public class Documents implements Serializable {
 
 	//Default Constructor
     public Documents() {

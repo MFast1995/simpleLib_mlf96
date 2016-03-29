@@ -1,9 +1,10 @@
 package edu.txstate.simpleLib_mlf96;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 //Superclass for Staff, Faculty, and Student class.
-public class User {
+public class User implements Serializable {
 
     //Default Constructor
     public User() {
